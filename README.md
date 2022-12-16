@@ -17,3 +17,21 @@ if(t2<4.5){
     Console.WriteLine("vm detected.");
     return;
 }
+```
+<br>
+Detect VM by memory allocation with c# <br>
+
+```csharp
+using System.Runtime.InteropServices;
+
+[DllImport("kernel32.dll", SetLastError = true, ExactSpelling =true)]
+static extern IntPtr VirtualAllocExNuma(IntPtr hProcess, IntPtr lpAddress, uint dwSize, UInt32 flAllocationType, UInt32 flProtect, UInt32 nndPreferred);
+[DllImport("kernel32.dll")]
+static extern IntPtr GetCurrentProcess();
+        
+IntPtr mem = VirtualAllocExNuma(GetCurrentProcess(), IntPtr.Zero, 0x1000, 0x3000, 0x4, 0);
+if(mem == null){
+    Console.WriteLine("vm detected.");
+    return;
+}
+```
