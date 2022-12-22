@@ -59,3 +59,24 @@ Chemins d’accès à des fichiers	<br>
 URL	<br>
 (?i)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))	www.netwrix.com<br>
 <br><br>
+
+
+```csharp
+    public static List<string> RemoveDuplicatesSet(List<string> items)
+    {
+        if (items.Count == 1)
+            return items;
+
+        var result = new List<string>();
+        var set = new HashSet<string>();
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (!set.Contains(items[i]))
+            {
+                result.Add(items[i]);
+                set.Add(items[i]);
+            }
+        }
+        return result;
+    }
+```
