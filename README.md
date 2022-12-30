@@ -80,3 +80,5 @@ URL	<br>
         return result;
     }
 ```
+<br><br>
+const string _findAllHrefsPattern = "(?<HTML><a[^>]*href\\s*=\\s*[\\\"\\']?(?<HRef>[^\"'>\\s]*)[\\\"\\']?[^>]*>(?<Title>[^<]+|.*?)?</a\\s*>)";
